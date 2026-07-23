@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 
+TARGET_SUPPORTS_OMX_SERVICE := false
+
 ifeq ($(PRODUCT_IS_ATV),true)
 # Inherit from atv products.
 $(call inherit-product, device/google/atv/products/atv_base.mk)
