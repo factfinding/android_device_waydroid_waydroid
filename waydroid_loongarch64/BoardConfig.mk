@@ -31,9 +31,6 @@ TARGET_2ND_CPU_VARIANT :=
 
 AUDIOSERVER_MULTILIB := first
 
-# ART has no optimizing compiler backend for LoongArch64 yet.
-ART_USE_OPTIMIZING_COMPILER := false
-
 ifneq ($(TARGET_USE_MESA),false)
 BOARD_MESA3D_GALLIUM_VA := disabled
 BOARD_MESA3D_VIDEO_CODECS := all

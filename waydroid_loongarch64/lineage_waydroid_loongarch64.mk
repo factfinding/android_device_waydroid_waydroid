@@ -20,6 +20,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 # Inherit the common Waydroid device configuration.
 $(call inherit-product, $(LOCAL_PATH)/../device.mk)
 
+# ART has no compiler backend for LoongArch64 yet.
+WITH_DEXPREOPT := false
+
 PRODUCT_BRAND := waydroid
 PRODUCT_DEVICE := waydroid_loongarch64
 PRODUCT_MANUFACTURER := Waydroid
