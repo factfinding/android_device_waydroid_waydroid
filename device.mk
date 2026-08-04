@@ -184,11 +184,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/init.waydroid.vendor.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.waydroid.vendor.rc
 
-# Keymaster
-PRODUCT_PACKAGES += \
-    android.hardware.keymaster@4.1-service
-
-# Keymint HAL
+# KeyMint HAL
 PRODUCT_PACKAGES += \
     android.hardware.security.keymint-service
 
