@@ -108,6 +108,12 @@ PRODUCT_PACKAGES += \
 
 ifneq ($(TARGET_USE_MESA),false)
 
+ifneq ($(filter %_waydroid_loongarch64,$(TARGET_PRODUCT)),)
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.allocator@4.0-service.minigbm_gbm_mesa \
+    android.hardware.graphics.mapper@4.0-impl.minigbm_gbm_mesa \
+    gralloc.minigbm_gbm_mesa
+else
 ifeq ($(filter %_waydroid_x86 %_waydroid_x86_64 %_waydroid_tv_x86 %_waydroid_tv_x86_64,$(TARGET_PRODUCT)),)
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@4.0-service.minigbm_dmabuf \
@@ -122,6 +128,7 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@4.0-impl.minigbm_gbm_mesa \
     gralloc.minigbm \
     gralloc.minigbm_gbm_mesa
+endif
 
 PRODUCT_PACKAGES += \
     dri_gbm \
