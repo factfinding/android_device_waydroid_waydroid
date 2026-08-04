@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        Waydroid's host bridge always owns 192.168.240.1/24. Use a static
+        client configuration because DHCP packet sockets do not currently
+        transmit from Android's LoongArch64 NetworkStack process.
+    -->
+    <string-array translatable="false" name="config_ethernet_interfaces">
+        <item>eth0;*;ip=192.168.240.2/24 gateway=192.168.240.1 dns=192.168.240.1</item>
+    </string-array>
+</resources>
