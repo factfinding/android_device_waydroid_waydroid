@@ -23,6 +23,11 @@ $(call inherit-product, $(LOCAL_PATH)/../device.mk)
 # ART has no compiler backend for LoongArch64 yet.
 WITH_DEXPREOPT := false
 
+# The legacy RenderScript runtime depends on libbcc's LLVM backend, which does
+# not support LoongArch64. Keep framework class preloading from initializing it.
+PRODUCT_PRODUCT_PROPERTIES += \
+    config.disable_renderscript=1
+
 PRODUCT_BRAND := waydroid
 PRODUCT_DEVICE := waydroid_loongarch64
 PRODUCT_MANUFACTURER := Waydroid
