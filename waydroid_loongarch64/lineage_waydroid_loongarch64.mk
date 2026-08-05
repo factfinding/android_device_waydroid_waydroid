@@ -30,6 +30,12 @@ PRODUCT_16K_DEVELOPER_OPTION := true
 PRODUCT_SYSTEM_PROPERTIES += \
     bionic.linker.16kb.app_compat.enabled=true
 
+# ARM64 native-bridge code currently runs through Berberis' interpreter.  A
+# cold translated process can legitimately need tens of seconds to finish
+# bindApplication, so use Android's standard slow-emulator timeout scaling.
+PRODUCT_SYSTEM_PROPERTIES += \
+    ro.hw_timeout_multiplier=5
+
 # Inherit the common Waydroid device configuration.
 $(call inherit-product, $(LOCAL_PATH)/../device.mk)
 
