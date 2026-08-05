@@ -21,6 +21,14 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 # binaries so their Bionic page-protected globals can be mapped correctly.
 PRODUCT_MAX_PAGE_SIZE_SUPPORTED := 16384
 PRODUCT_NO_BIONIC_PAGE_SIZE_MACRO := true
+PRODUCT_16K_DEVELOPER_OPTION := true
+
+# ARM64 native-bridge libraries commonly use 4 KiB ELF segment alignment.
+# Unlike native processes, the guest linker cannot inherit the per-process
+# compatibility mode selected by Zygote, so enable Bionic's 16 KiB app-compat
+# loader globally for this fixed-16-KiB-page product.
+PRODUCT_SYSTEM_PROPERTIES += \
+    bionic.linker.16kb.app_compat.enabled=true
 
 # Inherit the common Waydroid device configuration.
 $(call inherit-product, $(LOCAL_PATH)/../device.mk)
