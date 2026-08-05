@@ -328,8 +328,10 @@ PRODUCT_PACKAGES += \
 
 # Native Bridge
 ifeq ($(ANDROID_USE_NDK_TRANSLATION),true)
+ifneq ($(TARGET_ARCH),loongarch64)
 $(call inherit-product-if-exists, vendor/google/proprietary/ndk_translation-prebuilt/libndk_translation.mk)
 $(call inherit-product-if-exists, vendor/google/proprietary/ndk_translation-prebuilt/native_bridge_arm_on_x86.mk)
+endif
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += persist.sys.nativebridge=1
 endif
 
