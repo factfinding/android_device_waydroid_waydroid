@@ -19,8 +19,10 @@
 # Architecture
 TARGET_ARCH := loongarch64
 TARGET_ARCH_VARIANT :=
-TARGET_CPU_ABI := lp64d
-TARGET_CPU_ABI2 :=
+TARGET_CPU_ABI := loongarch64
+# Keep accepting APKs produced during early bring-up. lp64d names the
+# LoongArch psABI rather than the Android application ABI.
+TARGET_CPU_ABI2 := lp64d
 TARGET_CPU_VARIANT := generic
 
 TARGET_2ND_ARCH :=
