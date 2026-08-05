@@ -20,6 +20,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 # Inherit the common Waydroid device configuration.
 $(call inherit-product, $(LOCAL_PATH)/../device.mk)
 
+# ARM64 native libraries are executed by the interpreter-only LoongArch64
+# Berberis port.
+$(call inherit-product, frameworks/libs/binary_translation/enable_arm64_to_loongarch64.mk)
+
 # ART has no compiler backend for LoongArch64 yet.
 WITH_DEXPREOPT := false
 
