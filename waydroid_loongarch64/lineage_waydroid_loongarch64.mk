@@ -17,6 +17,11 @@
 # LoongArch64 is a 64-bit-only architecture.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 
+# The target host uses 16 KiB pages. This also aligns ARM64 native-bridge
+# binaries so their Bionic page-protected globals can be mapped correctly.
+PRODUCT_MAX_PAGE_SIZE_SUPPORTED := 16384
+PRODUCT_NO_BIONIC_PAGE_SIZE_MACRO := true
+
 # Inherit the common Waydroid device configuration.
 $(call inherit-product, $(LOCAL_PATH)/../device.mk)
 
