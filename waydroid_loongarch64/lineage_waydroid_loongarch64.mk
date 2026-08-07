@@ -51,8 +51,15 @@ WITH_DEXPREOPT := false
 PRODUCT_PRODUCT_PROPERTIES += \
     config.disable_renderscript=1
 
-PRODUCT_BRAND := waydroid
+# Present a conventional mobile device profile to applications while keeping
+# PRODUCT_NAME and PRODUCT_DEVICE stable as the internal Waydroid build target.
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    DeviceName=graceltexx \
+    DeviceProduct=2509FPN0BC \
+    ProductModel=2509FPN0BC
+
+PRODUCT_BRAND := XIAOMI
 PRODUCT_DEVICE := waydroid_loongarch64
-PRODUCT_MANUFACTURER := Waydroid
+PRODUCT_MANUFACTURER := XIAOMI
 PRODUCT_NAME := lineage_waydroid_loongarch64
-PRODUCT_MODEL := WayDroid LoongArch64 Device
+PRODUCT_MODEL := 2509FPN0BC
