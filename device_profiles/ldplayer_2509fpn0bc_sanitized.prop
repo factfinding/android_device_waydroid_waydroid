@@ -1,0 +1,10 @@
+# Optional public-facing compatibility profile captured from LDPlayer.
+# Reference only: this file is not copied into the product by default.
+ro.product.brand=XIAOMI
+ro.product.manufacturer=XIAOMI
+ro.product.model=2509FPN0BC
+ro.product.name=2509FPN0BC
+ro.product.device=graceltexx
+ro.product.board=2509FPN0BC
+ro.build.characteristics=tablet
+ro.sf.lcd_density=320
