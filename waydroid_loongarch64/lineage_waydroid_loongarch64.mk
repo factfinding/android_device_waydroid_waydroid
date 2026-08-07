@@ -51,6 +51,14 @@ WITH_DEXPREOPT := false
 PRODUCT_PRODUCT_PROPERTIES += \
     config.disable_renderscript=1
 
+# Provide a self-contained virtual modem so Android's standard telephony APIs
+# can expose per-instance identifiers without a host modem or data connection.
+PRODUCT_PACKAGES += \
+    com.android.hardware.radio.minradio.virtual
+
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.telephony.default_network=13
+
 # Present a conventional mobile device profile to applications while keeping
 # PRODUCT_NAME and PRODUCT_DEVICE stable as the internal Waydroid build target.
 PRODUCT_BUILD_PROP_OVERRIDES += \
