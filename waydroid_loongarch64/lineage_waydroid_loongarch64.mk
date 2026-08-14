@@ -39,6 +39,27 @@ PRODUCT_SYSTEM_PROPERTIES += \
 # Inherit the common Waydroid device configuration.
 $(call inherit-product, $(LOCAL_PATH)/../device.mk)
 
+# Reuse the official ARM64 GApps prebuilts through the ARM64 native bridge.
+# Keep libjni_latinimegoogle out of the product: unlike the APK-owned guest
+# libraries, Soong installs it as a target /product/lib64 library and the
+# native LoongArch64 LatinIME process would try to load it as a host ELF.
+ANDROID_USE_GAPPS ?= true
+ifeq ($(ANDROID_USE_GAPPS),true)
+PRODUCT_SOONG_NAMESPACES += \
+    vendor/gapps/arm64
+
+PRODUCT_PACKAGES += \
+    GmsCore \
+    Phonesky \
+    MarkupGoogle_v2 \
+    SetupWizard \
+    SpeechServicesByGoogle \
+    Velvet \
+    talkback
+
+$(call inherit-product, vendor/gapps/common/common-vendor.mk)
+endif
+
 # ARM64 native libraries are executed by the interpreter-only LoongArch64
 # Berberis port.
 $(call inherit-product, frameworks/libs/binary_translation/enable_arm64_to_loongarch64.mk)
