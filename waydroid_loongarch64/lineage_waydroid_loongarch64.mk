@@ -67,8 +67,9 @@ $(call inherit-product, frameworks/libs/binary_translation/enable_arm64_to_loong
 # ART has no compiler backend for LoongArch64 yet.
 WITH_DEXPREOPT := false
 
-# The legacy RenderScript runtime depends on libbcc's LLVM backend, which does
-# not support LoongArch64. Keep framework class preloading from initializing it.
+# The host runtime has no LoongArch64 libbcc backend. Keep RenderScript out of
+# the native Zygote, but allow ARM64 applications to initialize the guest
+# runtime lazily through Berberis.
 PRODUCT_PRODUCT_PROPERTIES += \
     config.disable_renderscript=1
 
