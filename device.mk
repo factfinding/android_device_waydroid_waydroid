@@ -228,6 +228,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.ffmpeg-codec2.rank=0 \
+    debug.ffmpeg-codec2.rank.audio=272 \
     debug.ffmpeg-codec2.hwaccel.drm=0 \
     debug.ffmpeg-codec2.pixel_format=RGBX_8888
 

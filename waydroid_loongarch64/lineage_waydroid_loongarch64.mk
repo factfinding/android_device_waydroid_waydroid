@@ -81,6 +81,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_VENDOR_PROPERTIES += \
     ro.telephony.default_network=13
 
+# Enable Instagram's process-local platform decoder policy at every boot.
+# The historical property name refers to the AV1 investigation; the validated
+# app path selects native VP9 and avoids its translated ARM64 dav1d decoder.
+# ActivityThread scopes the model override to Instagram with Berberis active.
+PRODUCT_VENDOR_PROPERTIES += \
+    debug.waydroid.instagram_native_av1=true
+
 # Present a conventional mobile device profile to applications while keeping
 # PRODUCT_NAME and PRODUCT_DEVICE stable as the internal Waydroid build target.
 PRODUCT_BUILD_PROP_OVERRIDES += \
